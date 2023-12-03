@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const { data } = await useFetch('/api/issues/issues')
-console.log(data.value)
 </script>
 
 <template>
@@ -13,36 +12,39 @@ console.log(data.value)
               <tr>
                 <th
                   scope="col"
-                  class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
+                  class="py-3.5 pl-4 pr-3 text-left text-sm font-black text-gray-900 sm:pl-0"
                 >
                   Issue
                 </th>
                 <th
                   scope="col"
-                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  class="px-3 py-3.5 text-left text-sm font-black text-gray-900"
                 >
                   Status
                 </th>
                 <th
                   scope="col"
-                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  class="px-3 py-3.5 text-left text-sm font-black text-gray-900"
                 >
                   Created
                 </th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200">
+            <tbody
+              class="divide-y divide-gray-200"
+              v-for="issue in data?.issues"
+            >
               <tr>
                 <td
                   class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
                 >
-                  Bug 1
+                  {{ issue.title }}
                 </td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  Pending
+                  {{ issue.status }}
                 </td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  today
+                  {{ issue.createdAt }}
                 </td>
               </tr>
             </tbody>
