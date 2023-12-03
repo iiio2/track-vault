@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+
+const links = [
+  { path: '/', label: 'Dashboard' },
+  { path: '/issues', label: 'Issues' },
+]
+const route = useRoute()
 </script>
 
 <template>
@@ -10,18 +16,19 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
         <div class="flex">
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
             <NuxtLink
-              to="/"
-              class="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900"
-              >Dashboard</NuxtLink
-            >
-            <NuxtLink
-              to="/issues"
-              class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-              >Issues</NuxtLink
+              :key="link.path"
+              v-for="link in links"
+              :to="link.path"
+              :class="[
+                route.path === link.path
+                  ? 'inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900'
+                  : 'inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900',
+              ]"
+              >{{ link.label }}</NuxtLink
             >
             <a
               href="#"
-              class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+              class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900"
               >Login</a
             >
           </div>
