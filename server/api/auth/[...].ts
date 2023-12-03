@@ -7,7 +7,7 @@ import prisma from '~/prisma/client'
 const runtimeConfig = useRuntimeConfig()
 
 export const authOptions: AuthConfig = {
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NUXTAUTH_SECRET,
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({

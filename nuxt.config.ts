@@ -5,4 +5,7 @@ export default defineNuxtConfig({
   alias: {
     cookie: 'cookie',
   },
+  authJs: {
+    baseUrl: process.env.NUXTAUTH_URL,
+  },
 })
