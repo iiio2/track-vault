@@ -42,7 +42,7 @@ const { data } = await useFetch('/api/issues/issues')
                   {{ issue.title }}
                 </td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  {{ issue.status }}
+                  <StatusBadge :status="issue.status" />
                 </td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                   {{ moment(issue.createdAt).format('DD MMM, YYYY') }}
