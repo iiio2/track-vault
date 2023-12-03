@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import moment from 'moment'
 const { data } = await useFetch('/api/issues/issues')
 </script>
 
@@ -44,7 +45,7 @@ const { data } = await useFetch('/api/issues/issues')
                   {{ issue.status }}
                 </td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  {{ issue.createdAt }}
+                  {{ moment(issue.createdAt).format('DD MMM, YYYY') }}
                 </td>
               </tr>
             </tbody>
