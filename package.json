@@ -9,7 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "prisma:inline": "cp ./node_modules/.prisma/client/*.js ./node_modules/@prisma/client",
-    "postbuild": "pnpm run prisma:inlne"
+    "postbuild": "pnpm run prisma:inline"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
