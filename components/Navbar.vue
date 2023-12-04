@@ -22,9 +22,8 @@ const route = useRoute()
               v-for="link in links"
               :to="link.path"
               :class="[
-                route.path === link.path
-                  ? 'inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900'
-                  : 'inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900',
+                route.path === link.path ? 'border-b-2 border-indigo-500 ' : '',
+                'inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900',
               ]"
               >{{ link.label }}</NuxtLink
             >
