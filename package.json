@@ -3,11 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
+    "build": "prisma generate && nuxt build && pnpm prisma:inline",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "prisma:inline": "cp ./node_modules/.prisma/client/*.js ./node_modules/@prisma/client"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
