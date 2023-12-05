@@ -7,5 +7,9 @@ export default defineEventHandler(async (event) => {
       createdAt: 'desc',
     },
   })
-  return issues
+  const count = await prisma.issue.groupBy({
+    by: ['status'],
+    _count: true,
+  })
+  return { issues, count }
 })

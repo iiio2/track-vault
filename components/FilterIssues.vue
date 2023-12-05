@@ -2,10 +2,10 @@
 const selected = ref('')
 const router = useRouter()
 const statusList = {
-  ALL: 'ALL',
-  OPEN: 'OPEN',
-  IN_PROGRESS: 'IN_PROGRESS',
-  CLOSED: 'CLOSED',
+  ALL: 'All',
+  OPEN: 'Open',
+  IN_PROGRESS: 'In Progress',
+  CLOSED: 'Closed',
 }
 </script>
 
@@ -21,7 +21,7 @@ const statusList = {
       class="border-2 border-solid rounded-xl bg-transparent py-1.5 px-2 text-gray-900"
     >
       <option disabled value="">Filter by Status</option>
-      <option v-for="status in statusList" :value="status">
+      <option v-for="(status, item) in statusList" :value="item">
         {{ status }}
       </option>
     </select>
