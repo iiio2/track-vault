@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { Status } from '@prisma/client'
-
 const selected = ref('')
 const router = useRouter()
 const statusList = {
   ALL: 'ALL',
-  ...Status,
+  OPEN: 'OPEN',
+  IN_PROGRESS: 'IN_PROGRESS',
+  CLOSED: 'CLOSED',
 }
 </script>
 
