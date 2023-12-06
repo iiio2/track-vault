@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import moment from 'moment'
+import { type Issue } from '@prisma/client'
 
-const data = ref()
+const data = ref<Issue[]>([])
 
 const route = useRoute()
 
@@ -11,7 +12,7 @@ watchEffect(async () => {
       status: route.query.status,
     },
   })
-  data.value = issues.value
+  data.value = issues.value as unknown as Issue[]
 })
 </script>
 
