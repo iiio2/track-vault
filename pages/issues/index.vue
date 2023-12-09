@@ -65,4 +65,5 @@ watchEffect(async () => {
       </div>
     </div>
   </div>
+  <Pagination :itemCount="100" :pageSize="30" :currentPage="2" />
 </template>
