@@ -3,6 +3,8 @@ import moment from 'moment'
 import { type Issue } from '@prisma/client'
 
 const data = ref<Issue[]>([])
+const pageSize = ref(6)
+const currentPage = ref(1)
 
 const route = useRoute()
 
@@ -65,5 +67,5 @@ watchEffect(async () => {
       </div>
     </div>
   </div>
-  <Pagination :itemCount="100" :pageSize="30" :currentPage="2" />
+  <Pagination :pageSize="pageSize" :currentPage="currentPage" />
 </template>
