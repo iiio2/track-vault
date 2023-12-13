@@ -1,6 +1,7 @@
 <script setup lang="ts">
+const { query } = defineProps(['query'])
 const pageSize = ref(6)
-const currentPage = ref(1)
+const currentPage = ref({ page: parseInt(query.page) })
 
 const { data } = await useFetch('/api/issues/issues-count')
 
@@ -26,11 +27,11 @@ const pages = computed(() => {
           v-for="page in pages"
         >
           <NuxtLink
-            :href="`/issues?page=${page}`"
+            :href="`${page === 1 ? '/issues' : `/issues?page=${page}`}`"
             aria-current="page"
-            @click="currentPage = page"
+            @click="currentPage.page = page"
             :class="[
-              page === currentPage
+              page === currentPage.page
                 ? 'bg-indigo-600 text-white'
                 : 'text-indigo-600',
               'relative z-10 inline-flex items-center px-4 py-2 text-sm font-semibold focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',

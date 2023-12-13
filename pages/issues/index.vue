@@ -66,5 +66,5 @@ watchEffect(async () => {
       </div>
     </div>
   </div>
-  <Pagination v-if="!$route.query.status" />
+  <Pagination v-if="!$route.query.status" :query="$route.query" />
 </template>
