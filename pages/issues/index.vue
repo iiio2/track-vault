@@ -3,8 +3,6 @@ import moment from 'moment'
 import { type Issue } from '@prisma/client'
 
 const data = ref<Issue[]>([])
-const pageSize = ref(6)
-const currentPage = ref(1)
 
 const route = useRoute()
 
@@ -12,6 +10,7 @@ watchEffect(async () => {
   const { data: issues } = await useFetch('/api/issues/issues', {
     query: {
       status: route.query.status,
+      page: route.query.page,
     },
   })
   data.value = issues.value as unknown as Issue[]
@@ -67,5 +66,5 @@ watchEffect(async () => {
       </div>
     </div>
   </div>
-  <Pagination :pageSize="pageSize" :currentPage="currentPage" />
+  <Pagination v-if="!$route.query.status" />
 </template>
