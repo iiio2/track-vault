@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import moment from 'moment'
 import { type Issue } from '@prisma/client'
 
 const data = ref<Issue[]>([])
@@ -58,7 +57,7 @@ watchEffect(async () => {
                 <StatusBadge :status="issue.status" />
               </td>
               <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                {{ moment(issue.createdAt).format('DD MMM, YYYY') }}
+                {{ $time(issue.createdAt) }}
               </td>
             </tr>
           </tbody>
