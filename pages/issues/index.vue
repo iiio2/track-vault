@@ -26,19 +26,19 @@ watchEffect(async () => {
             <tr>
               <th
                 scope="col"
-                class="py-3.5 pl-4 pr-3 text-left text-sm font-black text-gray-900 sm:pl-0"
+                class="py-3.5 pl-4 pr-3 text-left text-sm font-black text-gray-900 sm:pl-0 cursor-pointer"
               >
                 Issue
               </th>
               <th
                 scope="col"
-                class="px-3 py-3.5 text-left text-sm font-black text-gray-900"
+                class="px-3 py-3.5 text-left text-sm font-black text-gray-900 cursor-pointer"
               >
                 Status
               </th>
               <th
                 scope="col"
-                class="px-3 py-3.5 text-left text-sm font-black text-gray-900"
+                class="px-3 py-3.5 text-left text-sm font-black text-gray-900 cursor-pointer"
               >
                 Created
               </th>
