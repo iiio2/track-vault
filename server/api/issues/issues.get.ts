@@ -1,11 +1,19 @@
 import prisma from '~/prisma/client'
 
 export default defineEventHandler(async (event) => {
-  const { status, page } = getQuery(event) as any
+  const { status, page, orderBy } = getQuery(event) as any
   if (status) {
     const issues = await prisma.issue.findMany({
       where: {
         status,
+      },
+    })
+    return issues
+  }
+  if (orderBy) {
+    const issues = await prisma.issue.findMany({
+      orderBy: {
+        [orderBy]: 'desc',
       },
     })
     return issues

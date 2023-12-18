@@ -5,11 +5,18 @@ const data = ref<Issue[]>([])
 
 const route = useRoute()
 
+const tableHeader = [
+  { path: 'title', label: 'Issue' },
+  { path: 'status', label: 'Status' },
+  { path: 'createdAt', label: 'Created' },
+]
+
 watchEffect(async () => {
   const { data: issues } = await useFetch('/api/issues/issues', {
     query: {
-      status: route.query.status,
+      status: route.query.orderBy ? undefined : route.query.status,
       page: route.query.page,
+      orderBy: route.query.orderBy,
     },
   })
   data.value = issues.value as unknown as Issue[]
@@ -25,28 +32,21 @@ watchEffect(async () => {
           <thead>
             <tr>
               <th
+                v-for="header in tableHeader"
+                :key="header.path"
                 scope="col"
                 class="py-3.5 pl-4 pr-3 text-left text-sm font-black text-gray-900 sm:pl-0 cursor-pointer"
+                @click="$router.push('/issues?orderBy=' + header.path)"
               >
-                Issue
-              </th>
-              <th
-                scope="col"
-                class="px-3 py-3.5 text-left text-sm font-black text-gray-900 cursor-pointer"
-              >
-                Status
-              </th>
-              <th
-                scope="col"
-                class="px-3 py-3.5 text-left text-sm font-black text-gray-900 cursor-pointer"
-              >
-                Created
+                {{ header.label }}
               </th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-gray-200" v-for="issue in data">
-            <tr>
+
+          <tbody class="divide-y divide-gray-200">
+            <tr v-for="issue in data">
               <td
+                :key="issue.id"
                 class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
               >
                 <NuxtLink :to="'/issues/' + issue.id">
@@ -65,5 +65,8 @@ watchEffect(async () => {
       </div>
     </div>
   </div>
-  <Pagination v-if="!$route.query.status" :query="$route.query" />
+  <Pagination
+    v-if="!$route.query.status && !$route.query.orderBy"
+    :query="$route.query"
+  />
 </template>
