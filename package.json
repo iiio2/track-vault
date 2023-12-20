@@ -26,6 +26,7 @@
     "apexcharts": "^3.44.2",
     "moment": "^2.29.4",
     "prisma": "^5.6.0",
-    "vue3-apexcharts": "^1.4.4"
+    "vue3-apexcharts": "^1.4.4",
+    "zod": "^3.22.4"
   }
 }
