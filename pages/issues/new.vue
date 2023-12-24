@@ -1,15 +1,21 @@
 <script setup lang="ts">
+import { z } from 'zod'
+import type { FormSubmitEvent } from '#ui/types'
+import { issueFormSchema } from '~/prisma/IssueFormSchema'
+
+type schema = z.output<typeof issueFormSchema>
+
 const issue = ref({
   title: '',
   description: '',
 })
 
-const addIssue = async () => {
+const addIssue = async ({ data }: FormSubmitEvent<schema>) => {
   await useFetch('/api/issues/issues', {
     method: 'post',
     body: {
-      title: issue.value.title,
-      description: issue.value.description,
+      title: data.title,
+      description: data.description,
     },
   })
 }
@@ -17,40 +23,32 @@ const addIssue = async () => {
 
 <template>
   <div class="w-full">
-    <form class="px-8 pt-6 pb-8 mb-4" @submit.prevent="addIssue">
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
-          Title
-        </label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
-          id="title"
-          type="text"
-          placeholder="Title..."
+    <UForm
+      class="px-8 pt-6 pb-8 mb-4"
+      :schema="issueFormSchema"
+      :state="issue"
+      @submit="addIssue"
+    >
+      <UFormGroup label="Title" name="title" class="mb-2">
+        <UInput
           v-model="issue.title"
+          placeholder="Title..."
+          input-class="py-3"
         />
-      </div>
-      <div class="mb-6">
-        <label
-          class="block text-gray-700 text-sm font-bold mb-2"
-          for="description"
-        >
-          Description
-        </label>
-        <textarea
-          class="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight"
-          id="description"
-          type="text"
-          placeholder="Description..."
+      </UFormGroup>
+      <UFormGroup label="Description" name="description">
+        <UInput
           v-model="issue.description"
-        ></textarea>
-      </div>
-      <button
+          placeholder="Description..."
+          input-class="py-3"
+        />
+      </UFormGroup>
+      <UButton
         type="submit"
-        class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
+        class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 mt-5"
       >
         Add New Issue
-      </button>
-    </form>
+      </UButton>
+    </UForm>
   </div>
 </template>
