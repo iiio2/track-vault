@@ -7,5 +7,6 @@ export default defineNuxtConfig({
   },
   authJs: {
     baseUrl: process.env.NUXTAUTH_URL,
+    guestRedirectTo: '/api/auth/signin',
   },
 })
