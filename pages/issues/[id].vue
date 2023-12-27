@@ -29,11 +29,12 @@ const deleteIssue = async () => {
     <div class="flex justify-between">
       <h2 class="text-3xl">{{ data?.issue.title }}</h2>
       <div class="flex gap-5">
-        <button
+        <NuxtLink
           class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm"
+          :href="`/issues/edit/${$route.params.id}`"
         >
           Edit Issue
-        </button>
+        </NuxtLink>
         <button
           class="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm"
           @click="deleteIssue"
