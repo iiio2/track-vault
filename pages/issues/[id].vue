@@ -12,6 +12,11 @@ interface Issue {
     createdAt: Date
   }
 }
+
+const { status } = useAuth()
+
+console.log(status.value)
+
 const { data } = await useFetch<Issue>(`/api/issues/${route.params.id}`)
 
 const deleteIssue = async () => {
@@ -30,12 +35,14 @@ const deleteIssue = async () => {
       <h2 class="text-3xl">{{ data?.issue.title }}</h2>
       <div class="flex gap-5">
         <NuxtLink
+          v-if="status === 'authenticated'"
           class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm"
           :href="`/issues/edit/${$route.params.id}`"
         >
           Edit Issue
         </NuxtLink>
         <button
+          v-if="status === 'authenticated'"
           class="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm"
           @click="deleteIssue"
         >

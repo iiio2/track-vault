@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { type Issue } from '@prisma/client'
 
+const { status } = useAuth()
+
 const data = ref<Issue[]>([])
 
 const route = useRoute()
@@ -27,6 +29,7 @@ watchEffect(async () => {
   <div class="flex justify-between">
     <FilterIssues />
     <a
+      v-if="status === 'authenticated'"
       href="/issues/new"
       class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
     >

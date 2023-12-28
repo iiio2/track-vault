@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePageMeta({
+  middleware: 'auth',
+})
+
 import { z } from 'zod'
 import { Toaster, toast } from '@steveyuowo/vue-hot-toast'
 import type { FormSubmitEvent } from '#ui/types'
