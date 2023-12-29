@@ -15,8 +15,6 @@ interface Issue {
 
 const { status } = useAuth()
 
-console.log(status.value)
-
 const { data } = await useFetch<Issue>(`/api/issues/${route.params.id}`)
 
 const deleteIssue = async () => {
