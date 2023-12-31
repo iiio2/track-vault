@@ -30,7 +30,10 @@ const deleteIssue = async () => {
   <div>
     <Toaster />
     <div class="flex justify-between">
-      <h2 class="text-3xl">{{ data?.issue.title }}</h2>
+      <div class="flex justify-between gap-5">
+        <h2 class="text-3xl">{{ data?.issue.title }}</h2>
+        <AssignIssue />
+      </div>
       <div class="flex gap-5">
         <NuxtLink
           v-if="status === 'authenticated'"
