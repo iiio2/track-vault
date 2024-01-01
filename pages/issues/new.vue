@@ -32,6 +32,15 @@ const addIssue = async ({ data }: FormSubmitEvent<schema>) => {
     toast.error('Something error occured')
   }
 }
+
+useSeoMeta({
+  title: 'Track Vault - Add Issue',
+  ogTitle: 'Track Vault - Add Issue',
+  description:
+    'Simplify project oversight and problem resolution using our dedicated online issue tracking system',
+  ogDescription:
+    'Simplify project oversight and problem resolution using our dedicated online issue tracking system',
+})
 </script>
 
 <template>

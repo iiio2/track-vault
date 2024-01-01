@@ -1,3 +1,14 @@
+<script setup lang="ts">
+useSeoMeta({
+  title: 'Track Vault',
+  ogTitle: 'Track Vault',
+  description:
+    'Simplify project oversight and problem resolution using our dedicated online issue tracking system',
+  ogDescription:
+    'Simplify project oversight and problem resolution using our dedicated online issue tracking system',
+})
+</script>
+
 <template>
   <div>
     <NuxtLayout>

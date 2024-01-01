@@ -23,6 +23,15 @@ watchEffect(async () => {
   })
   data.value = issues.value as unknown as Issue[]
 })
+
+useSeoMeta({
+  title: 'Track Vault - Issues',
+  ogTitle: 'Track Vault - Issues',
+  description:
+    'Simplify project oversight and problem resolution using our dedicated online issue tracking system',
+  ogDescription:
+    'Simplify project oversight and problem resolution using our dedicated online issue tracking system',
+})
 </script>
 
 <template>

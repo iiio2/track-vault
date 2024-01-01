@@ -24,6 +24,15 @@ const deleteIssue = async () => {
   toast.success('Issue successfully deleted')
   window.location.href = '/'
 }
+
+useSeoMeta({
+  title: `Track Vault - ${data.value?.issue.title} `,
+  ogTitle: `Track Vault - ${data.value?.issue.title}`,
+  description:
+    'Simplify project oversight and problem resolution using our dedicated online issue tracking system',
+  ogDescription:
+    'Simplify project oversight and problem resolution using our dedicated online issue tracking system',
+})
 </script>
 
 <template>

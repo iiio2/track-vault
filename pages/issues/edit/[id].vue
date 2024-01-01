@@ -13,7 +13,16 @@ type schema = z.output<typeof issueFormSchema>
 
 const route = useRoute()
 
-const { data } = await useFetch(`/api/issues/${route.params.id}`)
+interface Issue {
+  issue: {
+    title: string
+    description: string
+    status: string
+    createdAt: Date
+  }
+}
+
+const { data } = await useFetch<Issue>(`/api/issues/${route.params.id}`)
 
 const fetchedIssue = data.value as any
 
@@ -42,6 +51,15 @@ const editIssue = async ({ data }: FormSubmitEvent<schema>) => {
     toast.error('Something error occured')
   }
 }
+
+useSeoMeta({
+  title: `Track Vault - ${data.value?.issue.title} - Edit `,
+  ogTitle: `Track Vault - ${data.value?.issue.title} - Edit`,
+  description:
+    'Simplify project oversight and problem resolution using our dedicated online issue tracking system',
+  ogDescription:
+    'Simplify project oversight and problem resolution using our dedicated online issue tracking system',
+})
 </script>
 
 <template>
