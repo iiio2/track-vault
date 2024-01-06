@@ -10,6 +10,7 @@ export default defineEventHandler(async (event) => {
     data: {
       title: body.title,
       description: body.description,
+      assignedUserId: body.assignedUserId ? body.assignedUserId : null,
     },
   })
   return issue

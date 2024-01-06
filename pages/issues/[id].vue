@@ -25,6 +25,18 @@ const deleteIssue = async () => {
   window.location.href = '/'
 }
 
+const assignIssue = async (assignedUserId: string) => {
+  const res = await useFetch(`/api/issues/${route.params.id}`, {
+    method: 'put',
+    body: {
+      assignedUserId,
+    },
+  })
+  if (res.status.value === 'success') {
+    toast.success('Issue successfully assigned')
+  }
+}
+
 useSeoMeta({
   title: `Track Vault - ${data.value?.issue.title} `,
   ogTitle: `Track Vault - ${data.value?.issue.title}`,
@@ -41,7 +53,7 @@ useSeoMeta({
     <div class="flex justify-between">
       <div class="flex justify-between gap-5">
         <h2 class="text-3xl">{{ data?.issue.title }}</h2>
-        <AssignIssue />
+        <AssignIssue :data="data" :assignIssue="assignIssue" />
       </div>
       <div class="flex gap-5">
         <NuxtLink
