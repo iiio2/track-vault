@@ -53,7 +53,11 @@ useSeoMeta({
     <div class="flex justify-between">
       <div class="flex justify-between gap-5">
         <h2 class="text-3xl">{{ data?.issue.title }}</h2>
-        <AssignIssue :data="data" :assignIssue="assignIssue" />
+        <AssignIssue
+          v-if="status === 'authenticated'"
+          :data="data"
+          :assignIssue="assignIssue"
+        />
       </div>
       <div class="flex gap-5">
         <NuxtLink
