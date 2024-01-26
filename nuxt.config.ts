@@ -1,7 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxt/ui', '@nuxtjs/tailwindcss', '@hebilicious/authjs-nuxt'],
+  modules: [
+    '@nuxt/ui',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode',
+    '@hebilicious/authjs-nuxt',
+  ],
+  colorMode: {
+    preference: 'system',
+    fallback: 'light',
+  },
   alias: {
     cookie: 'cookie',
   },

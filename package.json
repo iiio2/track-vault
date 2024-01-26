@@ -23,6 +23,7 @@
     "@hebilicious/authjs-nuxt": "^0.3.5",
     "@heroicons/vue": "^2.0.18",
     "@nuxt/ui": "^2.11.1",
+    "@nuxtjs/color-mode": "^3.3.2",
     "@prisma/client": "^5.6.0",
     "@steveyuowo/vue-hot-toast": "^1.1.8",
     "apexcharts": "^3.44.2",

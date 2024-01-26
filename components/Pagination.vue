@@ -16,9 +16,7 @@ const pages = computed(() => {
 </script>
 
 <template>
-  <div
-    class="flex items-center justify-between border-t border-gray-200 bg-white py-5"
-  >
+  <div class="flex items-center justify-between border-t border-gray-200 py-5">
     <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
       <div>
         <nav

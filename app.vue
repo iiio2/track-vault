@@ -19,3 +19,18 @@ useSeoMeta({
     </NuxtLayout>
   </div>
 </template>
+
+<style>
+.dark body,
+.dark body option {
+  background-color: #000;
+}
+.dark body,
+.dark body a,
+.dark body select,
+.dark body,
+.dark body th,
+.dark body td {
+  color: #fff;
+}
+</style>
