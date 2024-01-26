@@ -1,4 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useSeoMeta({
+  title: 'Track Vault',
+  ogTitle: 'Track Vault',
+})
+</script>
 
 <template>
   <Navbar />
