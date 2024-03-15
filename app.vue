@@ -25,12 +25,16 @@ useSeoMeta({
 .dark body option {
   background-color: #000;
 }
-.dark body,
 .dark body a,
 .dark body select,
-.dark body,
 .dark body th,
 .dark body td {
   color: #fff;
+}
+.VueHotToast__toast-container .content-message {
+  color: #000;
+}
+.dark body {
+  color: #333;
 }
 </style>

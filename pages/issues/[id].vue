@@ -52,7 +52,14 @@ useSeoMeta({
     <Toaster />
     <div class="flex justify-between">
       <div class="flex justify-between gap-5">
-        <h2 class="text-3xl">{{ data?.issue.title }}</h2>
+        <h2
+          :class="[
+            'text-3xl',
+            $colorMode.preference === 'dark' ? 'text-white' : '',
+          ]"
+        >
+          {{ data?.issue.title }}
+        </h2>
         <AssignIssue
           v-if="status === 'authenticated'"
           :data="data"
@@ -77,7 +84,11 @@ useSeoMeta({
       </div>
     </div>
     <StatusBadge :status="data?.issue.status" class="my-2" />
-    <p>{{ data?.issue.description }}</p>
-    <p>{{ $time(data?.issue.createdAt!) }}</p>
+    <p :class="[$colorMode.preference === 'dark' ? 'text-white' : '']">
+      {{ data?.issue.description }}
+    </p>
+    <p :class="[$colorMode.preference === 'dark' ? 'text-white' : '']">
+      {{ $time(data?.issue.createdAt!) }}
+    </p>
   </div>
 </template>
