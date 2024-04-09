@@ -21,4 +21,18 @@ export default defineNuxtConfig({
     baseUrl: process.env.NUXTAUTH_URL,
     guestRedirectTo: '/api/auth/signin',
   },
+  routeRules: {
+    '/issues': {
+      swr: true,
+    },
+    '/issues/new': {
+      prerender: true,
+    },
+    'issues/edit/**': {
+      prerender: true,
+    },
+    '/api/**': {
+      cors: true,
+    },
+  },
 })
