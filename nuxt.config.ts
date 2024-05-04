@@ -21,6 +21,17 @@ export default defineNuxtConfig({
     baseUrl: process.env.NUXTAUTH_URL,
     guestRedirectTo: '/api/auth/signin',
   },
+  nitro: {
+    storage: {
+      redis: {
+        driver: 'redis',
+        port: process.env.REDIS_PORT,
+        host: process.env.REDIS_HOST,
+        username: process.env.REDIS_USERNAME,
+        password: process.env.REDIS_PASSWORD,
+      },
+    },
+  },
   routeRules: {
     '/issues': {
       swr: true,
