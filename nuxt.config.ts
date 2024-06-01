@@ -10,6 +10,19 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@hebilicious/authjs-nuxt',
   ],
+  runtimeConfig: {
+    google: {
+      clientId: '',
+      clientSecret: '',
+    },
+    redis: {
+      port: '',
+      host: '',
+      username: '',
+      password: '',
+    },
+    authSecret: '',
+  },
   colorMode: {
     preference: 'system',
     fallback: 'light',
@@ -18,19 +31,8 @@ export default defineNuxtConfig({
     cookie: 'cookie',
   },
   authJs: {
-    baseUrl: process.env.NUXTAUTH_URL,
+    baseUrl: process.env.NUXT_AUTH_URL,
     guestRedirectTo: '/api/auth/signin',
-  },
-  nitro: {
-    storage: {
-      redis: {
-        driver: 'redis',
-        port: process.env.REDIS_PORT,
-        host: process.env.REDIS_HOST,
-        username: process.env.REDIS_USERNAME,
-        password: process.env.REDIS_PASSWORD,
-      },
-    },
   },
   routeRules: {
     '/issues': {
