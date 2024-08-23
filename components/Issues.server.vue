@@ -8,9 +8,9 @@ const data = ref<Issue[]>([])
 const route = useRoute()
 
 const tableHeader = [
-  { path: 'title', label: 'Issue' },
-  { path: 'status', label: 'Status' },
-  { path: 'createdAt', label: 'Created' },
+  { path: 'title', label: 'issue' },
+  { path: 'status', label: 'status' },
+  { path: 'createdAt', label: 'created' },
 ]
 
 watchEffect(async () => {
@@ -42,7 +42,7 @@ useSeoMeta({
       href="/issues/new"
       class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
     >
-      Add New Issue
+      {{ $t('add_new_issue') }}
     </a>
   </div>
 
@@ -59,7 +59,7 @@ useSeoMeta({
                 class="py-3.5 pl-4 pr-3 text-left text-sm font-black text-gray-900 sm:pl-0 cursor-pointer"
                 @click="$router.push('/issues?orderBy=' + header.path)"
               >
-                {{ header.label }}
+                {{ $t(header.label) }}
               </th>
             </tr>
           </thead>

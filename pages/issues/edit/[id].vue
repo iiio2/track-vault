@@ -89,7 +89,7 @@ useSeoMeta({
         type="submit"
         class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 mt-5"
       >
-        Edit Issue
+        {{ $t('edit_issue') }}
       </UButton>
     </UForm>
   </div>

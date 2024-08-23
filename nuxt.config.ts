@@ -9,7 +9,11 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     '@hebilicious/authjs-nuxt',
+    '@nuxtjs/i18n',
   ],
+  i18n: {
+    vueI18n: './config/i18n.config.ts',
+  },
   runtimeConfig: {
     google: {
       clientId: '',

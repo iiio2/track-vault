@@ -72,14 +72,14 @@ useSeoMeta({
           class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm"
           :href="`/issues/edit/${$route.params.id}`"
         >
-          Edit Issue
+          {{ $t('edit_issue') }}
         </NuxtLink>
         <button
           v-if="status === 'authenticated'"
           class="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm"
           @click="deleteIssue"
         >
-          Delete Issue
+          {{ $t('delete_issue') }}
         </button>
       </div>
     </div>

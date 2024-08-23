@@ -2,13 +2,27 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
+const { locale, setLocale } = useI18n()
 const { status } = useAuth()
+const route = useRoute()
+
+const language = globalThis.localStorage.getItem('lang')
+
+onMounted(() => {
+  setLocale(language!)
+})
+
+const lang = ref(language!)
 
 const links = [
-  { path: '/', label: 'Dashboard' },
-  { path: '/issues', label: 'Issues' },
+  { path: '/', label: 'dashboard' },
+  { path: '/issues', label: 'issues' },
 ]
-const route = useRoute()
+
+const handleLanguage = (lang: string) => {
+  globalThis.localStorage.setItem('lang', lang)
+  setLocale(lang)
+}
 </script>
 
 <template>
@@ -24,19 +38,19 @@ const route = useRoute()
               route.path === link.path ? 'border-b-2 border-indigo-500 ' : '',
               'inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900',
             ]"
-            >{{ link.label }}</NuxtLink
+            >{{ $t(link.label) }}</NuxtLink
           >
           <a
             v-if="status === 'unauthenticated'"
             href="/api/auth/signin"
             class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900"
-            >Login</a
+            >{{ $t('login') }}</a
           >
           <a
             v-if="status === 'authenticated'"
             href="/api/auth/signout"
             class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900"
-            >Logout</a
+            >{{ $t('logout') }}</a
           >
         </div>
         <div
@@ -46,6 +60,16 @@ const route = useRoute()
             <option value="system">System</option>
             <option value="light">Light</option>
             <option value="dark">Dark</option>
+          </select>
+          <!-- intl -->
+          <select
+            v-model="lang"
+            @click="handleLanguage(lang!)"
+            class="cursor-pointer"
+          >
+            <option value="en">English</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
           </select>
         </div>
       </div>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { data: issues } = await useFetch('/api/issues/latest-issues')
+const { locale, setLocale } = useI18n()
 
 const count = issues.value?.count.map((item) => item._count)
 const total = count?.reduce((a, c) => a + c)
