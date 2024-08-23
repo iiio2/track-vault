@@ -12,7 +12,7 @@ onMounted(() => {
   setLocale(language!)
 })
 
-const lang = ref(language!)
+const lang = ref(language! || 'en')
 
 const links = [
   { path: '/', label: 'dashboard' },
