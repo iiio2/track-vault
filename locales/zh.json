@@ -1,0 +1,19 @@
+{
+  "welcome": "欢迎",
+  "login": "登录",
+  "logout": "退出",
+  "add_new_issue": "添加新问题",
+  "edit_issue": "编辑问题",
+  "delete_issue": "删除问题",
+  "dashboard": "仪表板",
+  "issues": "问题",
+  "issue": "问题",
+  "status": "地位",
+  "created": "已创建",
+  "filter_by_status": "按状态过滤",
+  "all": "全部",
+  "open": "打开",
+  "in_progress": "进行中",
+  "closed": "关闭",
+  "issue_tracker": "问题跟踪器"
+}
