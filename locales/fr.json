@@ -1,0 +1,19 @@
+{
+  "welcome": "Bienvenue",
+  "login": "se connecter",
+  "logout": "déconnexion",
+  "add_new_issue": "Ajouter un nouveau problème",
+  "edit_issue": "Modifier le problème",
+  "delete_issue": "Supprimer le problème",
+  "dashboard": "Tableau de bord",
+  "issues": "Problèmes",
+  "issue": "Problème",
+  "status": "Statut",
+  "created": "Créé",
+  "filter_by_status": "Filtrer par statut",
+  "all": "tous",
+  "open": "Ouvrir",
+  "in_progress": "En cours",
+  "closed": "fermé",
+  "issue_tracker": "Suivi des problèmes"
+}

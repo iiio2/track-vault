@@ -1,0 +1,19 @@
+{
+  "welcome": "Welcome",
+  "login": "Login",
+  "logout": "Logout",
+  "add_new_issue": "Add New Issue",
+  "edit_issue": "Edit Issue",
+  "delete_issue": "Delete Issue",
+  "dashboard": "Dashboard",
+  "issues": "Issues",
+  "issue": "Issue",
+  "status": "Status",
+  "created": "Created",
+  "filter_by_status": "Filter by Status",
+  "all": "All",
+  "open": "Open",
+  "in_progress": "In Progress",
+  "closed": "Closed",
+  "issue_tracker": "Issue Tracker"
+}

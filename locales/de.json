@@ -1,0 +1,19 @@
+{
+  "welcome": "Willkommen",
+  "login": "Login",
+  "logout": "Abmelden",
+  "add_new_issue": "Neues Problem hinzufügen",
+  "edit_issue": "Problem bearbeiten",
+  "delete_issue": "Problem löschen",
+  "dashboard": "Armaturenbrett",
+  "issues": "Probleme",
+  "issue": "Ausgabe",
+  "status": "Status",
+  "created": "Erstellt",
+  "filter_by_status": "Filtrer par statut",
+  "all": "tous",
+  "open": "Ouvrir",
+  "in_progress": "En cours",
+  "closed": "fermé",
+  "issue_tracker": "Issue-Tracker"
+}
