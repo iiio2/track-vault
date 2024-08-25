@@ -71,6 +71,7 @@ const handleLanguage = (lang: string) => {
             <option value="fr">French</option>
             <option value="de">German</option>
             <option value="zh">Chinese</option>
+            <option value="ja">Japanese</option>
           </select>
         </div>
       </div>

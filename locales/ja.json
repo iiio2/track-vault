@@ -1,0 +1,19 @@
+{
+  "welcome": "いらっしゃいませ",
+  "login": "ログイン",
+  "logout": "ログアウト",
+  "add_new_issue": "新しい問題を追加する",
+  "edit_issue": "問題の編集",
+  "delete_issue": "問題の削除",
+  "dashboard": "ダッシュボード",
+  "issues": "問題",
+  "issue": "問題",
+  "status": "状態",
+  "created": "作成されました",
+  "filter_by_status": "ステータスによるフィルター",
+  "all": "全て",
+  "open": "開ける",
+  "in_progress": "進行中",
+  "closed": "閉店",
+  "issue_tracker": "問題追跡ツール"
+}
