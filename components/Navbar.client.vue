@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { languages } from '~/config/languages'
 
-const { locale, setLocale } = useI18n()
+const { setLocale } = useI18n()
 const { status } = useAuth()
 const route = useRoute()
 
@@ -67,11 +68,9 @@ const handleLanguage = (lang: string) => {
             @click="handleLanguage(lang!)"
             class="cursor-pointer"
           >
-            <option value="en">English</option>
-            <option value="fr">French</option>
-            <option value="de">German</option>
-            <option value="zh">Chinese</option>
-            <option value="ja">Japanese</option>
+            <option v-for="language of languages" :value="language.value">
+              {{ language.label }}
+            </option>
           </select>
         </div>
       </div>

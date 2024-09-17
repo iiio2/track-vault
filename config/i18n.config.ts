@@ -3,6 +3,7 @@ import fr from '../locales/fr.json'
 import de from '../locales/de.json'
 import zh from '../locales/zh.json'
 import ja from '../locales/ja.json'
+import nl from '../locales/nl.json'
 
 export default defineI18nConfig(() => ({
   legacy: false,
@@ -13,5 +14,6 @@ export default defineI18nConfig(() => ({
     de,
     zh,
     ja,
+    nl,
   },
 }))

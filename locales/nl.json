@@ -1,0 +1,19 @@
+{
+  "welcome": "Welkom",
+  "login": "Login",
+  "logout": "Uitloggen",
+  "add_new_issue": "Nieuw nummer toevoegen",
+  "edit_issue": "Probleem bewerken",
+  "delete_issue": "Probleem verwijderen",
+  "dashboard": "Dashboard",
+  "issues": "Problemen",
+  "issue": "Probleem",
+  "status": "Status",
+  "created": "Gemaakt",
+  "filter_by_status": "Filter op status",
+  "all": "Alle",
+  "open": "Open",
+  "in_progress": "In uitvoering",
+  "closed": "Gesloten",
+  "issue_tracker": "Probleemtracker"
+}
