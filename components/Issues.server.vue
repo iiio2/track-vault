@@ -21,7 +21,7 @@ watchEffect(async () => {
       orderBy: route.query.orderBy,
     },
   })
-  data.value = issues.value as unknown as Issue[]
+  data.value = issues.value as Issue[]
 })
 
 useSeoMeta({

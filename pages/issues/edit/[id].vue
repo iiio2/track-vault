@@ -4,6 +4,7 @@ definePageMeta({
 })
 
 import { z } from 'zod'
+import { type Issue } from '@prisma/client'
 import { Toaster, toast } from '@steveyuowo/vue-hot-toast'
 import type { FormSubmitEvent } from '#ui/types'
 import { issueFormSchema } from '~/prisma/IssueFormSchema'
@@ -13,16 +14,9 @@ type schema = z.output<typeof issueFormSchema>
 
 const route = useRoute()
 
-interface Issue {
-  issue: {
-    title: string
-    description: string
-    status: string
-    createdAt: Date
-  }
-}
-
-const { data } = await useFetch<Issue>(`/api/issues/${route.params.id}`)
+const { data } = await useFetch<{
+  issue: Issue
+}>(`/api/issues/${route.params.id}`)
 
 const fetchedIssue = data.value as any
 

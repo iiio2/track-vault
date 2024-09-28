@@ -1,27 +1,21 @@
 <script setup lang="ts">
+import { type Issue } from '@prisma/client'
 import { Toaster, toast } from '@steveyuowo/vue-hot-toast'
 import '@steveyuowo/vue-hot-toast/vue-hot-toast.css'
 
 const route = useRoute()
 
-interface Issue {
-  issue: {
-    title: string
-    description: string
-    status: string
-    createdAt: Date
-  }
-}
-
 const { status } = useAuth()
 
-const { data } = await useFetch<Issue>(`/api/issues/${route.params.id}`)
+const { data } = await useFetch<{
+  issue: Issue
+}>(`/api/issues/${route.params.id}`)
 
 const deleteIssue = async () => {
   await useFetch(`/api/issues/${route.params.id}`, {
     method: 'delete',
   })
-  toast.success('Issue successfully deleted')
+  toast.success('Issue has been successfully deleted')
   window.location.href = '/'
 }
 
@@ -33,7 +27,7 @@ const assignIssue = async (assignedUserId: string) => {
     },
   })
   if (res.status.value === 'success') {
-    toast.success('Issue successfully assigned')
+    toast.success('Issue has been successfully assigned')
   }
 }
 
