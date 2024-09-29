@@ -24,6 +24,8 @@ const handleLanguage = (lang: string) => {
   globalThis.localStorage.setItem('lang', lang)
   setLocale(lang)
 }
+
+const regex = /^\/issues(\/\d+)?$/
 </script>
 
 <template>
@@ -36,7 +38,10 @@ const handleLanguage = (lang: string) => {
             v-for="link in links"
             :to="link.path"
             :class="[
-              route.path === link.path ? 'border-b-2 border-indigo-500 ' : '',
+              route.path === link.path ||
+              (link.path === '/issues' && route.path.startsWith('/issues'))
+                ? 'border-b-2 border-indigo-500 '
+                : '',
               'inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900',
             ]"
             >{{ $t(link.label) }}</NuxtLink
