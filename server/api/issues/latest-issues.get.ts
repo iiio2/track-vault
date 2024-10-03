@@ -11,5 +11,12 @@ export default defineEventHandler(async (event) => {
     by: ['status'],
     _count: true,
   })
-  return { issues, count }
+  return {
+    issues: issues.map((issue) => ({
+      id: issue.id,
+      title: issue.title,
+      status: issue.status,
+    })),
+    count,
+  }
 })
