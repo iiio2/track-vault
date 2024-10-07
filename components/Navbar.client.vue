@@ -18,7 +18,7 @@ const lang = ref(language! || 'en')
 const links = [
   { path: '/', label: 'dashboard' },
   { path: '/issues', label: 'issues' },
-]
+] as const
 
 const handleLanguage = (lang: string) => {
   globalThis.localStorage.setItem('lang', lang)
