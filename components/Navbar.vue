@@ -7,10 +7,10 @@ const { setLocale } = useI18n()
 const { status } = useAuth()
 const route = useRoute()
 
-const language = globalThis.localStorage.getItem('lang')
+const language = window !== undefined && globalThis.localStorage.getItem('lang')
 
-onMounted(() => {
-  setLocale(language!)
+watchEffect(() => {
+  setLocale(language! as string)
 })
 
 const lang = ref(language! || 'en')
@@ -24,8 +24,6 @@ const handleLanguage = (lang: string) => {
   globalThis.localStorage.setItem('lang', lang)
   setLocale(lang)
 }
-
-const regex = /^\/issues(\/\d+)?$/
 </script>
 
 <template>

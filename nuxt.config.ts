@@ -1,9 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   experimental: {
     componentIslands: true,
   },
+
   modules: [
     '@nuxt/ui',
     '@nuxtjs/tailwindcss',
@@ -11,9 +13,11 @@ export default defineNuxtConfig({
     '@hebilicious/authjs-nuxt',
     '@nuxtjs/i18n',
   ],
+
   i18n: {
     vueI18n: './config/i18n.config.ts',
   },
+
   runtimeConfig: {
     google: {
       clientId: '',
@@ -27,21 +31,22 @@ export default defineNuxtConfig({
     },
     authSecret: '',
   },
+
   colorMode: {
     preference: 'system',
     fallback: 'light',
   },
+
   alias: {
     cookie: 'cookie',
   },
+
   authJs: {
     baseUrl: process.env.NUXT_AUTH_URL,
     guestRedirectTo: '/api/auth/signin',
   },
+
   routeRules: {
-    '/issues': {
-      swr: true,
-    },
     '/issues/new': {
       prerender: true,
     },
@@ -52,4 +57,6 @@ export default defineNuxtConfig({
       cors: true,
     },
   },
+
+  compatibilityDate: '2024-10-26',
 })

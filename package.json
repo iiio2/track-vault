@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "track-vault",
   "private": true,
   "type": "module",
   "scripts": {
@@ -7,7 +7,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "pnpm dlx prisma generate && nuxt prepare"
+    "prepare": "pnpm dlx prisma generate && nuxt prepare"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
