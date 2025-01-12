@@ -47,6 +47,9 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
+    '/': {
+      prerender: true,
+    },
     '/issues/new': {
       prerender: true,
     },
