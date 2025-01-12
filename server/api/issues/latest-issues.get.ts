@@ -6,17 +6,18 @@ export default defineEventHandler(async (event) => {
     orderBy: {
       createdAt: 'desc',
     },
+    select: {
+      id: true,
+      title: true,
+      status: true,
+    },
   })
   const count = await prisma.issue.groupBy({
     by: ['status'],
     _count: true,
   })
   return {
-    issues: issues.map((issue) => ({
-      id: issue.id,
-      title: issue.title,
-      status: issue.status,
-    })),
+    issues,
     count,
   }
 })
