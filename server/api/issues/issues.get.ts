@@ -8,6 +8,12 @@ export default defineEventHandler(async (event) => {
       where: {
         status,
       },
+      select: {
+        id: true,
+        title: true,
+        status: true,
+        createdAt: true,
+      },
     })
     return issues
   }
@@ -15,6 +21,12 @@ export default defineEventHandler(async (event) => {
     const issues = await prisma.issue.findMany({
       orderBy: {
         [orderBy]: 'desc',
+      },
+      select: {
+        id: true,
+        title: true,
+        status: true,
+        createdAt: true,
       },
     })
     return issues
@@ -32,6 +44,12 @@ export default defineEventHandler(async (event) => {
   const issues = await prisma.issue.findMany({
     skip: !page ? 0 : (page - 1) * 6,
     take: 6,
+    select: {
+      id: true,
+      title: true,
+      status: true,
+      createdAt: true,
+    },
   })
   await useStorage('redis').setItem(`issues:${page}`, issues)
 
