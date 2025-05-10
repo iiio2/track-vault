@@ -2,7 +2,7 @@ FROM docker.io/library/node:lts-alpine
 
 WORKDIR /app 
 
-RUN corepack enable
+RUN npm i -g corepack@latest && corepack enable
 
 RUN apk update
 
