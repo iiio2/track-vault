@@ -1,4 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+import tailwindcss from '@tailwindcss/vite'
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
@@ -6,13 +9,26 @@ export default defineNuxtConfig({
     componentIslands: true,
   },
 
+  vite: {
+    plugins: [tailwindcss()],
+  },
+
   modules: [
     '@nuxt/ui',
-    '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     '@hebilicious/authjs-nuxt',
     '@nuxtjs/i18n',
+    'nuxt-llms',
   ],
+
+  llms: {
+    domain: import.meta.dev
+      ? 'http://localhost:3000'
+      : 'track-vault.vercel.app',
+    title: 'Track Vault',
+    description:
+      'Simplify project oversight and problem resolution using our dedicated online issue tracking system',
+  },
 
   i18n: {
     vueI18n: './config/i18n.config.ts',
