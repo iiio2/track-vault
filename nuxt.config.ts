@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import tailwindcss from '@tailwindcss/vite'
+import { fileURLToPath } from 'node:url'
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -16,9 +17,11 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
     '@nuxtjs/color-mode',
+    '@prisma/nuxt',
     '@hebilicious/authjs-nuxt',
     '@nuxtjs/i18n',
     'nuxt-llms',
+    'nuxt-security',
   ],
 
   llms: {
@@ -55,6 +58,9 @@ export default defineNuxtConfig({
 
   alias: {
     cookie: 'cookie',
+    '@/prisma/client': fileURLToPath(
+      new URL('./prisma/client', import.meta.url)
+    ),
   },
 
   authJs: {
