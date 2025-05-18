@@ -2,6 +2,7 @@
 
 import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath } from 'node:url'
+import { isDevelopment } from 'std-env'
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -21,7 +22,7 @@ export default defineNuxtConfig({
     '@hebilicious/authjs-nuxt',
     '@nuxtjs/i18n',
     'nuxt-llms',
-    'nuxt-security',
+    ...(isDevelopment ? [] : ['nuxt-security']),
   ],
 
   llms: {
