@@ -13,6 +13,15 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: [
+        'moment',
+        'zod',
+        '@steveyuowo/vue-hot-toast',
+        'apexcharts',
+        'vue3-apexcharts',
+      ],
+    },
   },
 
   modules: [
