@@ -11,6 +11,8 @@ export default defineNuxtConfig({
     componentIslands: true,
   },
 
+  sourcemap: isDevelopment,
+
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
