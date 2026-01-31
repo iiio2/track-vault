@@ -13,10 +13,10 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/i18n": "^10.2.1",
-    "nuxt": "^4.2.2",
-    "nuxt-security": "2.5.0",
-    "vue": "^3.5.25",
-    "vue-router": "^4.6.4"
+    "nuxt": "^4.3.0",
+    "nuxt-security": "2.5.1",
+    "vue": "^3.5.27",
+    "vue-router": "^5.0.1"
   },
   "dependencies": {
     "@auth/core": "^0.34.3",
@@ -24,7 +24,7 @@
     "@headlessui/vue": "^1.7.23",
     "@hebilicious/authjs-nuxt": "^0.3.5",
     "@heroicons/vue": "^2.2.0",
-    "@nuxt/ui": "^4.2.1",
+    "@nuxt/ui": "^4.4.0",
     "@nuxtjs/color-mode": "^4.0.0",
     "@prisma/client": "^6.19.1",
     "@prisma/nuxt": "^0.3.0",
@@ -32,12 +32,12 @@
     "@tailwindcss/vite": "^4.1.18",
     "apexcharts": "^3.44.2",
     "moment": "^2.30.1",
-    "nuxt-llms": "^0.1.3",
+    "nuxt-llms": "^0.2.0",
     "prisma": "^6.19.1",
     "std-env": "^3.10.0",
     "tailwind": "^4.0.0",
-    "vue3-apexcharts": "^1.4.4",
-    "zod": "^4.1.13"
+    "vue3-apexcharts": "^1.10.0",
+    "zod": "^4.3.6"
   },
-  "packageManager": "pnpm@10.25.0"
+  "packageManager": "pnpm@10.28.2"
 }
